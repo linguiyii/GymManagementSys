@@ -2,10 +2,6 @@ package edu.demo.gymsys.serviceImpl;
 
 import android.content.Context;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import edu.demo.gymsys.dao.UserDao;
 import edu.demo.gymsys.model.User;
 import edu.demo.gymsys.service.UserService;
@@ -28,11 +24,6 @@ public class UserServiceImpl implements UserService {
     public User getUserByEmail(String email) {
         // 这里可以添加其他业务逻辑
         return userDao.getUserByEmail(email);
-    }
-
-    @Override
-    public ArrayList<User> getUsers() {
-        return userDao.getUsers();
     }
 
     @Override

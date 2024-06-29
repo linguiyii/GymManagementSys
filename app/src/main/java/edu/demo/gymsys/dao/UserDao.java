@@ -5,9 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.demo.gymsys.database.DatabaseHelper;
 import edu.demo.gymsys.model.User;
 
@@ -60,33 +57,5 @@ public class UserDao {
     public int deleteUser(int id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         return db.delete(DatabaseHelper.TABLE_USER, DatabaseHelper.COLUMN_ID + "=?", new String[]{String.valueOf(id)});
-    }
-
-    public ArrayList<User> getUsers() {
-        ArrayList<User> userList = new ArrayList<>();
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-        Cursor cursor = null;
-        try {
-            String query = "SELECT * FROM User";
-            cursor = db.rawQuery(query, null);
-
-            if (cursor.moveToFirst()) {
-                do {
-                    int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-                    String email = cursor.getString(cursor.getColumnIndexOrThrow("email"));
-                    String password = cursor.getString(cursor.getColumnIndexOrThrow("password"));
-                    User user = new User(id, email,password);
-                    userList.add(user);
-                } while (cursor.moveToNext());
-            }
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-            db.close();
-        }
-
-        return userList;
     }
 }

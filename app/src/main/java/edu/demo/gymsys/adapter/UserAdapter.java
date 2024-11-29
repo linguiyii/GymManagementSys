@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ public class UserAdapter extends BaseAdapter {
 
     private static class ViewHolder {
         public TextView contentView;
-        public TextView menuView;
+        public ImageView menuView;
     }
 
     public UserAdapter(Context context, ArrayList<User> users) {
@@ -56,8 +57,8 @@ public class UserAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_slide, null);
             viewHolder = new ViewHolder();
-            viewHolder.contentView = (TextView) convertView.findViewById(R.id.content);
-            viewHolder.menuView = (TextView) convertView.findViewById(R.id.menu);
+            viewHolder.contentView = convertView.findViewById(R.id.content);
+            viewHolder.menuView =  convertView.findViewById(R.id.delete);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

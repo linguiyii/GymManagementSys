@@ -8,18 +8,16 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#d7d7d7"
         android:gravity="center"
         android:text="content"
         android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/menu"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:background="#ff0000"
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_width="90dp"
+        android:background="#FF5E5E"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_home_item_delete_24"
         android:gravity="center"
-        android:padding="8dp"
-        android:text="delete"
-        android:textSize="25sp" />
+        android:padding="8dp"/>
 </edu.demo.gymsys.view.SlideLayout>
